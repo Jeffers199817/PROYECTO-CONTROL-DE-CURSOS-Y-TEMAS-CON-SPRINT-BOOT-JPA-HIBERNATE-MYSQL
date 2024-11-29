@@ -5,6 +5,7 @@ import com.milenyumsoft.controldecursos.service.ICursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -41,5 +42,24 @@ public class CursoController {
        Curso cur= cursoService.getCurso(id);
         return cur;
     }
+
+    @GetMapping("cursos/traerjava")
+    public List<Curso> traerCursos1() {
+
+        List<Curso> listaCurso = cursoService.getCursos();
+        List<Curso> listaCursosJava = new ArrayList<>();
+        for(Curso curso : listaCurso) {
+
+            if( curso.getNombre().toLowerCase().contains("java") ==true) {
+
+                listaCursosJava.add(curso);
+            }
+
+        }
+
+        return listaCursosJava;
+    }
+
+
 
 }
