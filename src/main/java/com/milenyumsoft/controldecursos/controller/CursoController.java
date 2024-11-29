@@ -36,4 +36,10 @@ public class CursoController {
         return cursoService.getCursos();
     }
 
+    @GetMapping("curso/traer")
+    public Curso traerCurso(@RequestParam Long id) {
+       Curso cur= cursoService.getCurso(id);
+        return cur;
+    }
+
 }
