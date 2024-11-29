@@ -27,7 +27,7 @@ public class CursoController {
     public Curso editCurso(@RequestBody Curso curso) {
 
         Curso cur = cursoService.updateCurso(curso);
-
+        System.out.println("Curso editado exitosamente");
         return cur;
     }
 
