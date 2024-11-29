@@ -5,6 +5,8 @@ import com.milenyumsoft.controldecursos.service.ICursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CursoController {
 
@@ -26,7 +28,12 @@ public class CursoController {
         Curso cur = cursoService.updateCurso(curso);
 
         return cur;
-            }
+    }
 
+    @GetMapping("cursos/traer")
+    public List<Curso> traerCursos() {
+
+        return cursoService.getCursos();
+    }
 
 }
