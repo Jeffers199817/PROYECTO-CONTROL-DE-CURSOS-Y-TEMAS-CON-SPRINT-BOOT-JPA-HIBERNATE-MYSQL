@@ -5,6 +5,7 @@ import com.milenyumsoft.controldecursos.service.ITemaService;
 import com.milenyumsoft.controldecursos.service.TemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,14 @@ public class TemaController {
     public String crearTema(@RequestBody Tema tema) {
         temaService.saveTema(tema);
         return "Tema creada, exitosamente";
+    }
+
+    //Editar datos de un tema
+
+    @PutMapping("tema/editar")
+    public Tema editarTema(@RequestBody Tema tema) {
+
+        Tema tem =  temaService.updateTema(tema);
+        return tem;
     }
 }
